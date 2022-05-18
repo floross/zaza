@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "prisma": "libs/prisma",
+    "zaza": "apps/zaza",
+    "zaza-e2e": "apps/zaza-e2e"
+  },
+  "version": 2
+}

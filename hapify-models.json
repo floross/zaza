@@ -1,0 +1,198 @@
+{
+  "models": [
+    {
+      "accesses": {
+        "count": "guest",
+        "create": "owner",
+        "read": "guest",
+        "remove": "owner",
+        "search": "guest",
+        "update": "owner"
+      },
+      "fields": [
+        {
+          "name": "id",
+          "properties": ["primary", "searchable", "sortable", "internal"],
+          "type": "string"
+        },
+        {
+          "name": "createdAt",
+          "properties": ["searchable", "sortable", "internal"],
+          "type": "datetime"
+        },
+        {
+          "name": "title",
+          "properties": ["label", "searchable", "sortable"],
+          "type": "string"
+        },
+        {
+          "name": "content",
+          "properties": ["searchable", "sortable"],
+          "subtype": "text",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "properties": ["searchable", "sortable"],
+          "type": "enum",
+          "value": ["published", "draft"]
+        },
+        {
+          "meta": {
+            "backRelation": "blogPosts",
+            "ownerStringPath": "user.id"
+          },
+          "name": "author",
+          "properties": ["searchable", "sortable", "ownership"],
+          "subtype": "oneMany",
+          "type": "entity",
+          "value": "a7d0308a-49f0-3458-0975-1dce106136a1"
+        },
+        {
+          "meta": {
+            "backRelation": "questions"
+          },
+          "name": "tags",
+          "properties": ["nullable", "multiple", "searchable", "sortable"],
+          "subtype": "manyMany",
+          "type": "entity",
+          "value": "1342e64d-6880-cc39-ecf0-372e8ffddc17"
+        }
+      ],
+      "id": "6894a782-2e83-cd6a-52cc-f62967165636",
+      "name": "BlogPost"
+    },
+    {
+      "accesses": {
+        "count": "owner",
+        "create": "owner",
+        "read": "owner",
+        "remove": "owner",
+        "search": "owner",
+        "update": "owner"
+      },
+      "fields": [
+        {
+          "name": "id",
+          "properties": ["primary", "searchable", "sortable", "internal"],
+          "type": "string"
+        },
+        {
+          "name": "createdAt",
+          "properties": ["searchable", "sortable", "internal"],
+          "type": "datetime"
+        },
+        {
+          "meta": {
+            "backRelation": "profil",
+            "ownerStringPath": "user.id"
+          },
+          "name": "user",
+          "properties": ["unique", "searchable", "sortable", "ownership"],
+          "subtype": "oneOne",
+          "type": "entity",
+          "value": "a7d0308a-49f0-3458-0975-1dce106136a1"
+        },
+        {
+          "name": "phone",
+          "properties": ["searchable", "sortable"],
+          "type": "string"
+        },
+        {
+          "name": "address",
+          "properties": ["searchable", "sortable"],
+          "type": "string"
+        }
+      ],
+      "id": "7c1c844a-308d-a7c9-9e36-d9a58c4fd845",
+      "name": "Profil"
+    },
+    {
+      "accesses": {
+        "count": "guest",
+        "create": "admin",
+        "read": "guest",
+        "remove": "admin",
+        "search": "guest",
+        "update": "admin"
+      },
+      "fields": [
+        {
+          "name": "id",
+          "properties": ["primary", "searchable", "sortable", "internal"],
+          "type": "string"
+        },
+        {
+          "name": "createdAt",
+          "properties": ["searchable", "sortable", "internal"],
+          "type": "datetime"
+        },
+        {
+          "name": "label",
+          "properties": ["label", "searchable", "sortable"],
+          "type": "string"
+        }
+      ],
+      "id": "1342e64d-6880-cc39-ecf0-372e8ffddc17",
+      "name": "Tag"
+    },
+    {
+      "accesses": {
+        "count": "owner",
+        "create": "guest",
+        "read": "owner",
+        "remove": "admin",
+        "search": "owner",
+        "update": "owner"
+      },
+      "fields": [
+        {
+          "meta": {
+            "ownerStringPath": "user.id"
+          },
+          "name": "id",
+          "properties": [
+            "primary",
+            "searchable",
+            "sortable",
+            "internal",
+            "ownership"
+          ],
+          "type": "string"
+        },
+        {
+          "name": "createdAt",
+          "properties": ["searchable", "sortable", "internal"],
+          "type": "datetime"
+        },
+        {
+          "name": "name",
+          "properties": ["label", "searchable", "sortable"],
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "properties": ["unique", "searchable", "sortable"],
+          "subtype": "email",
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "properties": ["nullable", "hidden"],
+          "subtype": "password",
+          "type": "string"
+        },
+        {
+          "name": "roles",
+          "properties": ["multiple", "searchable", "sortable"],
+          "type": "enum",
+          "value": ["admin", "user", "guest"]
+        }
+      ],
+      "id": "a7d0308a-49f0-3458-0975-1dce106136a1",
+      "name": "User"
+    }
+  ],
+  "name": "New project",
+  "version": "3"
+}

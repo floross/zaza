@@ -1,0 +1,28 @@
+{
+  "root": "apps/zaza-e2e",
+  "sourceRoot": "apps/zaza-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/zaza-e2e/cypress.json",
+        "devServerTarget": "zaza:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "zaza:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/zaza-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["zaza"]
+}
