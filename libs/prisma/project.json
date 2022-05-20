@@ -35,7 +35,7 @@
             "forwardAllArgs": false
           },
           {
-            "command": "npx prisma generate",
+            "command": "PRISMA_CLIENT_ENGINE_TYPE=\"dataproxy\" npx prisma generate",
             "forwardAllArgs": false
           }
         ],

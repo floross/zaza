@@ -10,8 +10,10 @@
     "hpf:serve": "hpf serve --depth 5",
     "lint": "nx workspace-lint && nx run-many --all --target=lint --parallel",
     "nx": "nx",
+    "prisma:generate": "nx run prisma:generate",
     "start": "nx serve",
-    "test": "nx test"
+    "test": "nx test",
+    "vercel-build": "npm run prisma:generate && nx build zaza"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
