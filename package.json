@@ -4,16 +4,13 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "nx build",
+    "build": "nx run prisma:generate && nx build zaza",
     "format": "nx format:write --all",
     "generate": "npx nx run-many --target generate --all",
     "hpf:serve": "hpf serve --depth 5",
     "lint": "nx workspace-lint && nx run-many --all --target=lint --parallel",
-    "nx": "nx",
-    "prisma:generate": "nx run prisma:generate",
-    "start": "nx serve",
-    "test": "nx test",
-    "vercel-build": "npm run prisma:generate && nx build zaza"
+    "start": "nx serve zaza",
+    "test": "nx test zaza"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
