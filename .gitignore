@@ -45,7 +45,6 @@ Thumbs.db
 
 # Package lock from npm i
 yarn.lock
-**/package-lock.json
 
 # Local sqlite database
 **/prisma/dev.db
